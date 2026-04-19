@@ -1,0 +1,65 @@
+# Laravel core
+/vendor/
+/node_modules/
+/public/build
+/public/hot
+/storage/*.key
+
+# Environment files
+.env
+.env.*.local
+.env.local
+
+# Logs
+/storage/logs/*
+*.log
+
+# Cache & compiled files
+/bootstrap/cache/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+
+# Uploaded files (optional, if dynamic)
+/storage/app/public/*
+/public/storage
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Composer
+composer.phar
+
+# PHPUnit
+.phpunit.result.cache
+
+# Node / Vite
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build files
+dist/
+build/
+
+# Misc
+*.bak
+*.swp
+*.tmp
+
+# GitHub (optional if you don’t want workflows ignored)
+#.github/
+
+# Legacy folder (if not needed in repo)
+#legacy_vanilla/
+
+# Images (optional - uncomment if generated files)
+#images/

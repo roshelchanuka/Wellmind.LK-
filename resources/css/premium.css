@@ -1,0 +1,97 @@
+/* Premium Dark Mode Styles for WellMind */
+.premium-theme {
+  --header-height: 4.5rem;
+
+  /* Premium Dark Theme Override */
+  --primary-color: #749D62;
+  --primary-glow: rgba(116, 157, 98, 0.3);
+  --bg-dark: #0a0f18;
+  --bg-darker: #050810;
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  
+  --title-color: #f8fafc;
+  --text-color: #cbd5e1;
+  --text-light: #94a3b8;
+
+  --body-color: var(--bg-dark);
+}
+
+/* Scoped Premium Theme Styles */
+body.premium-theme {
+  background-color: var(--bg-dark);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(116, 157, 98, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.1) 0px, transparent 50%);
+  background-attachment: fixed;
+  color: var(--text-color);
+}
+
+/* Liquid Navbar */
+header.header {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+
+header.header.scrolled {
+  background: rgba(15, 23, 42, 0.7) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  border-bottom: 1px solid var(--glass-border) !important;
+}
+
+/* Buttons */
+.login-btn, .msg-btn, button {
+  border-radius: 140px !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.login-btn:hover, button:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 10px 25px var(--primary-glow) !important;
+}
+
+/* Glass Cards */
+.card, .stat-card, .admin-card {
+  background: var(--card-bg) !important;
+  backdrop-filter: blur(15px) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 24px !important;
+  transition: all 0.4s ease !important;
+}
+
+.card:hover {
+  border-color: rgba(116, 157, 98, 0.3) !important;
+  transform: translateY(-5px);
+}
+
+/* Transitions */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-darker);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(116, 157, 98, 0.2);
+    border-radius: 10px;
+    border: 2px solid var(--bg-darker);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(116, 157, 98, 0.4);
+}
