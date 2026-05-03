@@ -1183,8 +1183,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const chatbox = document.getElementById("chatbox");
 
   if (sendBtn && userInput && chatbox) {
-    // Focus input
-    userInput.focus();
+    sendBtn.addEventListener("click", () => {
+      const text = userInput.value.trim();
+      if (!text) return;
+
+      addMessage(text, "user");
+      userInput.value = "";
+      
+      const reply = getBotResponse(text);
+      setTimeout(() => {
+        addMessage(reply, "bot");
+      }, 500);
+    });
+
+    userInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") sendBtn.click();
+    });
+  }
+
 
     // Responses Data
     // Responses Data (Localized)
@@ -1621,10 +1637,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 1000);
     }
 
-    sendBtn.addEventListener("click", handleSend);
-    userInput.addEventListener("keypress", (e) => {
-      if (e.key === "Enter") handleSend();
-    });
+    if (sendBtn && userInput && chatbox) {
+      sendBtn.addEventListener("click", handleSend);
+      userInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") handleSend();
+      });
+    }
 
     // Refresh Logic
     const refreshBtn = document.getElementById("refreshChat");
@@ -1645,7 +1663,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     }
-  }
 
   // --- HISTORY PAGE LOGIC ---
   const historyTableBody = document.getElementById("historyTableBody");
@@ -2040,7 +2057,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* GLOBAL SCROLL REVEAL POP-UP ANIMATION (STRICT CONTENT ONLY) */
-  const revealElements = document.querySelectorAll(".scroll-animate, .card, .bg-card, .mood-container, .advice-card, .stat-card, .flip-card, .hero-content h1, .hero-content p, .hero-buttons, .form-container, .support-list li");
+  const revealElements = document.querySelectorAll(
+    ".reveal, .scroll-animate, " +
+    ".feature-card, .self-care-item, .insight-item, .playlist-card, .review-card, " +
+    ".stretch-section, .insight-grid, .callout-banner, .partner-banner, " +
+    ".action-card, .self-guided-section, .self-care-section, " +
+    ".mood-container, .advice-card, .stat-card, .flip-card, " +
+    ".form-container, .support-list li"
+  );
 
   if (revealElements.length > 0) {
     const observer = new IntersectionObserver((entries) => {
@@ -2051,8 +2075,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     }, {
-      threshold: 0.15,
-      rootMargin: "0px 0px -30px 0px"
+      threshold: 0.08,
+      rootMargin: "0px 0px -50px 0px"
     });
 
     revealElements.forEach((el) => {

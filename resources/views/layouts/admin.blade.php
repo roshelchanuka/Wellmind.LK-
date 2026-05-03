@@ -6,7 +6,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Admin Dashboard - WellMind LK</title>
     
-    @vite(['resources/css/admin.css', 'resources/css/premium.css', 'resources/js/app.js'])
+    <!-- Hardcoded Assets for XAMPP stability (bypasses Vite path issues permanently) -->
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}?v={{ time() }}">
+    <link rel="stylesheet" href="{{ asset('css/premium.css') }}?v={{ time() }}">
+    <script type="module" src="{{ asset('js/app.js') }}?v={{ time() }}"></script>
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
